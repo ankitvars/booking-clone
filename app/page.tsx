@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import SearchForm from "@/components/SearchForm";
 import { trending_data } from "@/data/trending";
 
 export default function Home() {
@@ -11,11 +12,11 @@ export default function Home() {
         </h3>
       </section>
 
-      <section className="-mb-14 px-2 mt-0 m-4 lg:px-4">
-        {/* SearchForm */}
+      <section className="m-4 mt-0 -mb-14 px-2 lg:px-4">
+        <SearchForm />
       </section>
 
-      <section className="max-w-7xl mx-auto p-6 mt-10 bg-white rounded-t-lg">
+      <section className="mx-auto max-w-7xl mt-10 p-6 bg-white rounded-t-lg">
         <div className="pt-5">
           <h3 className="text-xl font-bold">Trending Destinations</h3>
           <p className="font-light">
@@ -27,20 +28,15 @@ export default function Home() {
           {trending_data.map((item) => (
             <div key={item.id} className="space-y-1 shrink-0 cursor-pointer">
               <img
-                className="w-80 h-72 object-cover rounded-lg pb-2"
                 key={item.id}
+                className="w-80 h-72 object-cover rounded-lg pb-2"
                 src={item.src}
                 alt=""
               />
-              <p className="font-bold">
-                {item.title}
-              </p>
-              <p className="">
-                {item.location}
-              </p>
-              <p className="font-light text-sm">
-                {item.description}
-              </p>
+
+              <p className="font-bold">{item.title}</p>
+              <p className="">{item.location}</p>
+              <p className="font-light text-sm">{item.description}</p>
             </div>
           ))}
         </div>
